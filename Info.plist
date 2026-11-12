@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Die App nimmt Fotos (niedriger ISO, normal, hoher ISO, Blitz) und Videos auf.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Fotos und Videos werden zusätzlich in deiner Fotos-Mediathek gesichert.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Für den Ton bei Videoaufnahmen.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Fotos und Videos werden über dein WLAN direkt an deinen Mac geschickt.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

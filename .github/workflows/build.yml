@@ -1,0 +1,28 @@
+name: iPhone-App bauen
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: App bauen (ohne Signatur)
+        run: |
+          xcodebuild -project DreiFach.xcodeproj -target DreiFach \
+            -configuration Release -sdk iphoneos SYMROOT="$PWD/build" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+
+      - name: IPA packen
+        run: |
+          mkdir Payload
+          cp -R build/Release-iphoneos/DreiFach.app Payload/
+          zip -qr DreiFach.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DreiFach-ipa
+          path: DreiFach.ipa
